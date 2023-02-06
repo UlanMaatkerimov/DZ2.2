@@ -9,9 +9,9 @@ package kg.geeks.dz2;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws LimitException{
+    public static void main(String[] args) throws LimitException {
         BankAccount bankAccount = new BankAccount();
-        bankAccount.deposit(20000);
+        bankAccount.deposit(100);
         System.out.println("На вашем балансе: " + bankAccount.getAmount() + " сом");
         Scanner scanner = new Scanner(System.in);
 
@@ -22,12 +22,10 @@ public class Main {
                 System.out.println("Вы сняли " + balance + " сом");
 
             } catch (LimitException e) {
-                System.out.println("Недостаточно средств на вашем счётё! Снято : " + e.getRemainingAmount() + " сом");
-                bankAccount.withDraw((int) e.getRemainingAmount());
-                break;
+                System.out.println("Недостаточно средств на вашем счётё! Вы можете снять " + bankAccount.getAmount() + " сом");
+
             }
             System.out.println(bankAccount.getAmount());
-
 
 
         }
